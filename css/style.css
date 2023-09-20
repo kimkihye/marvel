@@ -1,0 +1,268 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.marvel article {
+  width: 24vw;
+  height: 60vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -30vh;
+  margin-left: -12vw;
+  z-index: 1;
+  overflow: hidden;
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+.marvel article .ch {
+  width: 100%;
+  height: 40%;
+  background-color: #222;
+  padding: 30px 20px 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: 0.5;
+}
+.marvel article .ch h2 {
+  font: 2vw/1 "arial";
+  color: #fff;
+  position: absolute;
+  bottom: 9vw;
+  left: 23px;
+  z-index: 2;
+  transition: 0.5s;
+  text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.marvel article .img {
+  width: 100%;
+  height: 60%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  object-fit: cover;
+}
+.marvel article .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.5s;
+}
+.marvel article .open {
+  width: 0%;
+  height: 60px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.marvel article .open p {
+  font: 16px/1 "arial";
+  color: #fff;
+  opacity: 0;
+  transition: 0.5s;
+}
+.marvel article .open i {
+  margin-right: -100px;
+  opacity: 0;
+  color: #fff;
+  transition: 0.5s;
+}
+.marvel article .close {
+  cursor: pointer;
+  position: absolute;
+  top: 10vh;
+  right: -10vh;
+  color: #ddd;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.marvel article:nth-of-type(1) {
+  transform: translateX(-400%) translateY(0%);
+  opacity: 0;
+}
+.marvel article:nth-of-type(2) {
+  transform: translateX(-130%) translateY(0%);
+  opacity: 0.8;
+}
+.marvel article:nth-of-type(3) {
+  transform: translateX(0%) translateY(0%);
+  opacity: 1;
+}
+.marvel article:nth-of-type(3) .ch h2::before {
+  width: 4vw;
+}
+.marvel article:nth-of-type(3) .pic img {
+  opacity: 1;
+}
+.marvel article:nth-of-type(3) .open {
+  width: 100%;
+}
+.marvel article:nth-of-type(3) .open p {
+  transform: translateX(20px);
+  opacity: 1;
+  transition: 0.5s 0.5s;
+}
+.marvel article:nth-of-type(3) .open i {
+  margin-right: 30px;
+  opacity: 1;
+  transition: 0.5s 0.8s;
+}
+.marvel article:nth-of-type(4) {
+  transform: translateX(130%) translateY(0%);
+  opacity: 0.8;
+}
+.marvel article:nth-of-type(5) {
+  transform: translateX(400%) translateY(0%);
+  opacity: 0;
+}
+.marvel article.on {
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  margin-left: 0;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition-duration: 0.8s;
+  transition-delay: 0.5s;
+}
+.marvel article.on .ch {
+  width: 60%;
+  height: 100%;
+  padding: 5vw;
+  transition: 0.5s 0.5s;
+}
+.marvel article.on .ch h2 {
+  top: 10vw;
+  left: 5vw;
+  transition: 0.5s;
+}
+.marvel article.on .img {
+  width: 40%;
+  height: 100%;
+  transition: 0.5s 0.5s;
+}
+.marvel article.on .open {
+  opacity: 0;
+  margin-top: 1000px;
+}
+.marvel article.on .close {
+  opacity: 1;
+  right: 10vw;
+  transition: 0.5s 1s;
+}
+.marvel article.hide {
+  margin-top: -1000px;
+  opacity: 0;
+}
+
+nav {
+  position: absolute;
+  bottom: 10vh;
+  right: 10vw;
+  display: flex;
+  gap: 50px;
+  transition: 0.5s;
+}
+nav::before {
+  content: "";
+  height: 150%;
+  width: 1px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) rotate(-60deg);
+}
+nav p {
+  width: 100px;
+  height: 40px;
+  position: relative;
+  color: #000;
+  cursor: pointer;
+}
+nav p span {
+  font: italic 12px/1 "arial";
+  display: inline-block;
+}
+nav p::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: #000;
+  top: 50%;
+  transition: 0.2s 0.2s;
+  opacity: 1;
+}
+nav p::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 1px;
+  background-color: #000;
+  top: 50%;
+  opacity: 1;
+  transition: 0.2s 0s;
+}
+nav p.prev {
+  text-align: right;
+}
+nav p.prev span {
+  transform: translateY(20px);
+}
+nav p.prev::before {
+  right: 0px;
+}
+nav p.prev::after {
+  transform: rotate(30deg);
+  left: 0;
+  transform-origin: left center;
+}
+nav p.next {
+  text-align: left;
+}
+nav p.next span {
+  transform: translateY(-5px);
+}
+nav p.next::before {
+  left: 0;
+}
+nav p.next::after {
+  transform: rotate(30deg);
+  right: 0;
+  transform-origin: right center;
+}
+nav p:hover.next::before, nav p:hover.prev::before {
+  width: 100%;
+  transition: 0.2s;
+}
+nav p:hover.next::after, nav p:hover.prev::after {
+  width: 40px;
+  transition: 0.2s 0.2s;
+}
+
+/*# sourceMappingURL=style.css.map */
