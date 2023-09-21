@@ -1,5 +1,5 @@
 @charset 'utf-8';
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 * {
     margin: 0px;
     padding: 0px;
@@ -20,46 +20,44 @@ a {
 
     .marvel {
         article {
-            width: 24vw;
+            width: 18vw;
             height: 60vh;
             position: fixed;
             top: 50%;
             left: 50%;
             margin-top: -30vh;
-            margin-left: -12vw;
+            margin-left: -9vw;
             z-index: 1;
             overflow: hidden;
-            // transition-property: width, height, transform, opacity,
-            //     margin-left, margin-top, top, left;
             transition-duration: 0.5s;
             transition-delay: 0s;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 
             .ch {
                 width: 100%;
-                height: 40%;
-                background-color: #222;
+                height: 30%;
+                background-color: #333;
                 padding: 30px 20px 20px;
                 position: absolute;
                 bottom: 0;
                 right: 0;
                 transition: 0.5;
                 h2 {
-                    font: 2vw/1 "arial";
+                    font: bold 2vw/1 "Oswald";
+                    letter-spacing: 2px;
                     color: #fff;
                     position: absolute;
-                    bottom: 9vw;
+                    bottom: 6vw;
                     left: 23px;
                     z-index: 2;
                     transition: 0.5s;
-                    text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+                    text-shadow: 5px 5px 3px rgba(0, 0, 0, 0.3);
                 }
             }
 
             .img {
                 width: 100%;
-                height: 60%;
-                background-color: #000;
+                height: 70%;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -70,7 +68,6 @@ a {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    opacity: 0.9;
                     transition: opacity 0.5s;
                 }
             }
@@ -89,7 +86,7 @@ a {
                 transition: 0.5s;
 
                 p {
-                    font: 16px/1 "arial";
+                    font: 16px/1 "Oswald";
                     color: #fff;
                     opacity: 0;
                     transition: 0.5s;
@@ -184,11 +181,9 @@ a {
                 height: 100%;
                 padding: 5vw;
                 transition: 0.5s 0.5s;
-
-                h2 {
-                    top: 10vw;
-                    left: 5vw;
-                    transition: 0.5s;
+                h2{
+                    top: 20%;
+                    left: 10%;
                 }
             }
 
@@ -207,7 +202,6 @@ a {
                 opacity: 1;
                 right: 10vw;
                 transition: 0.5s 1s;
-                // transition-timing-function: cubic-bezier(0.48, -0.67, 0.54, 1.68);
             }
 
         }
@@ -220,110 +214,73 @@ a {
 
     nav {
         position: absolute;
-        bottom: 10vh;
-        right: 10vw;
+        bottom: 7%;
+        right: 43%;
         display: flex;
-        gap: 50px;
+        gap: 110px;
         transition: 0.5s;
-
-        &::before {
-            content: "";
-            height: 150%;
-            width: 1px;
-            background-color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateY(-50%) rotate(-60deg);
-
-        }
-
-        p {
-            width: 100px;
-            height: 40px;
-            position: relative;
-            color: #000;
+        .prev,
+        .next{
+            width: 70px;
+            height: 70px;
             cursor: pointer;
+            position: relative;
 
-            span {
-                font: italic 12px/1 "arial";
-                display: inline-block;
-            }
-
-            &::before {
+            &::before,
+            &::after{
                 content: '';
-                position: absolute;
-                width: 0%; 
-                height: 1px;
+                display: block;
+                width: 17px;
+                height: 2px;
                 background-color: #000;
-                top: 50%;
-                transition: 0.2s 0.2s;
-                opacity: 1;
-            }
-
-            &::after {
-                content: '';
                 position: absolute;
-                width: 0px; 
-                height: 1px;
+            }
+
+            &::before{
+                top: 49%;
+                transform: rotate(45deg) translateX(0px);
+            }
+
+            &::after{
+                bottom: 49%;
+                transform: rotate(-45deg) translateX(0px);
+            }
+
+            span{
+                width: 20px;
+                height: 2px;
                 background-color: #000;
-                top: 50%;
+                position: absolute;
+                top: 49%;
                 opacity: 1;
-                transition: 0.2s 0s;
-
-            }
-
-            &.prev {
-                text-align: right;
-
-                span {
-                    transform: translateY(20px);
-                }
-
-                &::before {
-                    right: 0px;
-                }
-
-                &::after {
-                    transform: rotate(30deg);
-                    left: 0;
-                    transform-origin: left center;
-                }
-            }
-
-            &.next {
-                text-align: left;
-
-                span {
-                    transform: translateY(-5px);
-                }
-
-                &::before {
-                    left: 0;
-                }
-
-                &::after {
-                    transform: rotate(30deg);
-                    right: 0;
-                    transform-origin: right center;
-                }
             }
         }
 
-        p:hover {
+        .prev{
+            &::before,
+            &::after{
+                left: 25px;
+                transform-origin: left center;
+            }
 
-            &.next,
-            &.prev {
-                &::before {
-                    width: 100%;
-                    transition: 0.2s;
-
-                }
-
-                &::after {
-                    width: 40px;
-                    transition: 0.2s 0.2s;
-                }
+            span{
+                left: 25px;
             }
         }
+
+        .next{
+            &::before,
+            &::after{
+                right: 25px;
+                transform-origin: right center;
+            }
+
+            span{
+                right: 25px;
+            }
+        }
+
+        
+
+        
     }
