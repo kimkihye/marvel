@@ -33,7 +33,7 @@ a {
             transition-delay: 0s;
             box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 
-            .ch {
+            .character {
                 width: 100%;
                 height: 30%;
                 background-color: #ff3b1f;
@@ -53,6 +53,25 @@ a {
                     transition: 0.5s;
                     text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
                 }
+                .desc{
+                    width: 60%;
+                    opacity: 0;
+                    position: absolute;
+                    top: 60%;
+                    left: 5vw;
+                    transition: 0.5s;
+                    font: 16px/1.3 "arial";
+                    color: #fff;
+                }
+                .vid{
+                    width: 400px;
+                    height: 250px;
+                    border: 1px solid #000;
+                    opacity: 0;
+                    position: absolute;
+                    left: 20vw;
+                    transform: 0.5s;
+                }
             }
 
             .image {
@@ -69,6 +88,12 @@ a {
                     height: 100%;
                     object-fit: cover;
                     transition: opacity 0.5s;
+                }
+                .reflect{
+                    position: absolute;
+                    top: 100%;
+                    right: 0%;
+                    transition: 0.8s 0.1s; 
                 }
             }
 
@@ -113,18 +138,28 @@ a {
             &:nth-of-type(1) {
                 transform: translateX(-400%) translateY(0%);
                 opacity: 0;
+                .image {
+                    .reflect{
+                        opacity: 0;
+                    }
+                }
             }
 
             &:nth-of-type(2) {
                 transform: translateX(-130%) translateY(0%);
                 opacity: 0.8;
+                .image {
+                    .reflect{
+                        opacity: 0;
+                    }
+                }
             }
 
             &:nth-of-type(3) {
                 transform: translateX(0%) translateY(0%);
                 opacity: 1;
 
-                .ch {
+                .character {
                     h2::before {
                         width: 4vw;
                     }
@@ -133,6 +168,9 @@ a {
                 .image {
                     img {
                         opacity: 1;
+                    }
+                    .reflect{
+                        top: -40%;
                     }
                 }
 
@@ -157,11 +195,21 @@ a {
             &:nth-of-type(4) {
                 transform: translateX(130%) translateY(0%);
                 opacity: 0.8;
+                .image {
+                    .reflect{
+                        opacity: 0;
+                    }
+                }
             }
 
             &:nth-of-type(5) {
                 transform: translateX(400%) translateY(0%);
                 opacity: 0;
+                .image {
+                    .reflect{
+                        opacity: 0;
+                    }
+                }
             }
         }
 
@@ -176,21 +224,37 @@ a {
             transition-duration: 0.8s;
             transition-delay: 0.5s;
 
-            .ch {
+            .character {
                 width: 60%;
                 height: 100%;
                 padding: 5vw;
                 transition: 0.5s 0.5s;
                 h2{
+                    font-size: 3vw;
                     top: 20%;
                     left: 10%;
                 }
+                .desc{
+                    font-size: 20px;
+                    opacity: 1;
+                    top: 35%;
+                    left: 10%;
+                    transition: 1s 1s;
+                }
+                // .vid{
+                //     opacity: 1;
+                //     top: 63%;
+                //     transform: 0.5s 0.5s;
+                // }
             }
 
             .image {
                 width: 40%;
                 height: 100%;
                 transition: 0.5s 0.5s;
+                .reflect{
+                    opacity: 0;
+                }
             }
 
             .open {
@@ -202,6 +266,7 @@ a {
                 opacity: 1;
                 right: 10vw;
                 transition: 0.5s 1s;
+                color: #000;
             }
 
         }

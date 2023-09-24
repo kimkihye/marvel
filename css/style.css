@@ -29,7 +29,7 @@ a {
   transition-delay: 0s;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
-.marvel article .ch {
+.marvel article .character {
   width: 100%;
   height: 30%;
   background-color: #ff3b1f;
@@ -39,7 +39,7 @@ a {
   right: 0;
   transition: 0.5;
 }
-.marvel article .ch h2 {
+.marvel article .character h2 {
   font: bold 2vw/1 "Oswald";
   letter-spacing: 2px;
   color: #fff;
@@ -49,6 +49,25 @@ a {
   z-index: 2;
   transition: 0.5s;
   text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.3);
+}
+.marvel article .character .desc {
+  width: 60%;
+  opacity: 0;
+  position: absolute;
+  top: 60%;
+  left: 5vw;
+  transition: 0.5s;
+  font: 16px/1.3 "arial";
+  color: #fff;
+}
+.marvel article .character .vid {
+  width: 400px;
+  height: 250px;
+  border: 1px solid #000;
+  opacity: 0;
+  position: absolute;
+  left: 20vw;
+  transform: 0.5s;
 }
 .marvel article .image {
   width: 100%;
@@ -64,6 +83,12 @@ a {
   height: 100%;
   object-fit: cover;
   transition: opacity 0.5s;
+}
+.marvel article .image .reflect {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  transition: 0.8s 0.1s;
 }
 .marvel article .open {
   width: 0%;
@@ -103,19 +128,28 @@ a {
   transform: translateX(-400%) translateY(0%);
   opacity: 0;
 }
+.marvel article:nth-of-type(1) .image .reflect {
+  opacity: 0;
+}
 .marvel article:nth-of-type(2) {
   transform: translateX(-130%) translateY(0%);
   opacity: 0.8;
+}
+.marvel article:nth-of-type(2) .image .reflect {
+  opacity: 0;
 }
 .marvel article:nth-of-type(3) {
   transform: translateX(0%) translateY(0%);
   opacity: 1;
 }
-.marvel article:nth-of-type(3) .ch h2::before {
+.marvel article:nth-of-type(3) .character h2::before {
   width: 4vw;
 }
 .marvel article:nth-of-type(3) .image img {
   opacity: 1;
+}
+.marvel article:nth-of-type(3) .image .reflect {
+  top: -40%;
 }
 .marvel article:nth-of-type(3) .open {
   width: 100%;
@@ -134,8 +168,14 @@ a {
   transform: translateX(130%) translateY(0%);
   opacity: 0.8;
 }
+.marvel article:nth-of-type(4) .image .reflect {
+  opacity: 0;
+}
 .marvel article:nth-of-type(5) {
   transform: translateX(400%) translateY(0%);
+  opacity: 0;
+}
+.marvel article:nth-of-type(5) .image .reflect {
   opacity: 0;
 }
 .marvel article.on {
@@ -149,20 +189,31 @@ a {
   transition-duration: 0.8s;
   transition-delay: 0.5s;
 }
-.marvel article.on .ch {
+.marvel article.on .character {
   width: 60%;
   height: 100%;
   padding: 5vw;
   transition: 0.5s 0.5s;
 }
-.marvel article.on .ch h2 {
+.marvel article.on .character h2 {
+  font-size: 3vw;
   top: 20%;
   left: 10%;
+}
+.marvel article.on .character .desc {
+  font-size: 20px;
+  opacity: 1;
+  top: 35%;
+  left: 10%;
+  transition: 1s 1s;
 }
 .marvel article.on .image {
   width: 40%;
   height: 100%;
   transition: 0.5s 0.5s;
+}
+.marvel article.on .image .reflect {
+  opacity: 0;
 }
 .marvel article.on .open {
   opacity: 0;
@@ -172,6 +223,7 @@ a {
   opacity: 1;
   right: 10vw;
   transition: 0.5s 1s;
+  color: #000;
 }
 .marvel article.hide {
   margin-top: -1000px;
